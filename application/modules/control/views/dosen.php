@@ -200,9 +200,10 @@
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Pendidikan Terakhir</label>
                                         <div class="col-sm-6">
                                             <select name="pendidikan_terakhir" id="" class="custom-select">
-                                                <option value="S1">S1</option>
-                                                <option value="S2">S2</option>
-                                                <option value="S3">S3</option>
+                                                <?php foreach ($pendidikan_terakhir as $row_pendidikanTerakhir) {
+                                                    $selected = ($row_pendidikanTerakhir['id'] == $row['id']) ? "selected" : ""; ?>
+                                                    <option value="<?= $row_pendidikanTerakhir['id'] ?>" <?= $selected ?>><?= $row_pendidikanTerakhir['id']; ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>

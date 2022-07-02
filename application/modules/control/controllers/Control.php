@@ -82,6 +82,7 @@
             $data['title'] = 'Control | Portal Tugas Akhir';
             $data['dosen'] = $this->Control_model->getAllDosen();
             $data['prodi'] = $this->Control_model->getAllProdi();
+            $data['pendidikan_terakhir'] = $this->Control_model->pendidikanTerakhir();
             $data['session_access_user'] = $this->session->userdata('alias');
             $this->load->view('control/dosen', $data);
         } else {

@@ -39,6 +39,7 @@
         $this->db->select('*');
         $this->db->from('dosen');
         $this->db->join('program_studi', 'program_studi.kd_program_studi = dosen.program_studi');
+        $this->db->join('pendidikan_terakhir', 'pendidikan_terakhir.id = dosen.pendidikan_terakhir');
         $this->db->order_by('nama', 'ASC');
         $query = $this->db->get();
         return $query->result_array();
@@ -128,6 +129,10 @@
     function getAllProdi()
     {
         return $this->db->get('program_studi')->result_array();
+    }
+    function pendidikanTerakhir()
+    {
+        return $this->db->get('pendidikan_terakhir')->result_array();
     }
     public function uploadImageNewDosen()
     {
