@@ -119,7 +119,7 @@
                         foreach ($query->result_array() as $row) {
                         }
                         $W_Dokumen = $row['idf'] * $banyakKata;
-                        echo $kata . " " . round($row['idf'], 3) . " " . $banyakKata . " = " . round($W_Dokumen, 3)  . "<br>";
+                        // echo $kata . " " . round($row['idf'], 3) . " " . $banyakKata . " = " . round($W_Dokumen, 3)  . "<br>";
 
                         // Bobot sebelum dipangkatkan
                         $sum += $W_Dokumen;
@@ -149,19 +149,19 @@
 
             // echo "<br><br>";
             // SUM sebelum dipangkatkan
-            echo "<b>Total Bobot Dokumen = " . round($sum, 3) . "</b>";
+            // echo "<b>Total Bobot Dokumen = " . round($sum, 3) . "</b>";
             // echo "<br>";
 
             // SUM setelah dipangkatkan
             $sum_sqrt = sqrt($pangkat_sum);
 
-            echo "<b>Panjang Bobot Dokumen  = " . round($sum_sqrt, 3)  . "</b>";
-            echo "<br>";
+            // echo "<b>Panjang Bobot Dokumen  = " . round($sum_sqrt, 3)  . "</b>";
+            // echo "<br>";
             // Nilai Kata Kunci sebelum dipangkat
-            echo "<b>Nilai Kata Kunci = $cek</b>";
-            echo "<br>";
+            // echo "<b>Nilai Kata Kunci = $cek</b>";
+            // echo "<br>";
             // // Nilai kata kunci setelah dipangkatkan
-            echo "<b>Nilai Kata Kunci Sqrt = " . sqrt($cek_after) . "</b><br>";
+            // echo "<b>Nilai Kata Kunci Sqrt = " . sqrt($cek_after) . "</b><br>";
 
             $arrayToLowerKeyword = explode(" ", $toLowerKeyword);
             $hitungkoma_awal = 0;
@@ -183,16 +183,16 @@
                     // $hitungkoma_akhir adalah berapa banyak kata (kata kunci) di dalam array abstrak (per judul) * $idf
                     $hitungkoma_akhir = substr_count($removeKataImbuhan, $kata) * pow($idf, 2);
 
-                    echo "<br>";
-                    echo substr_count($removeKataImbuhan, $kata) . "<br><br>";
-                    echo pow($idf, 2) . "<br><br>";
-                    echo "<b>" . $hitungkoma_akhir . "</b><br>";
-                    echo "<b>" . $kata . " " . round($idf, 3) . "</b><br>";
+                    // echo "<br>";
+                    // echo substr_count($removeKataImbuhan, $kata) . "<br><br>";
+                    // echo pow($idf, 2) . "<br><br>";
+                    // echo "<b>" . $hitungkoma_akhir . "</b><br>";
+                    // echo "<b>" . $kata . " " . round($idf, 3) . "</b><br>";
 
                     $p = round($idf, 3);
                     $pangkatKataKunci = pow($idf, 2);
 
-                    echo $pangkatKataKunci . "<br>";
+                    // echo $pangkatKataKunci . "<br>";
 
                     // Jika $kata ada dalam DB
                     // echo "Kata <b>$kata = " . round($pangkatKataKunci, 3) . "</b><br>";
@@ -206,26 +206,26 @@
                 $hargaKataKunci += $pangkatKataKunci;
             }
             // echo "<br>";
-            echo "<b>Hasil total = $hitungkoma_awal </b><br>";
-            echo "Panjang Bobot Kata Kunci = " . round(sqrt($hargaKataKunci), 3)  . "</b><br>";
+            // echo "<b>Hasil total = $hitungkoma_awal </b><br>";
+            // echo "Panjang Bobot Kata Kunci = " . round(sqrt($hargaKataKunci), 3)  . "</b><br>";
             $kali = sqrt($hargaKataKunci) * $sum_sqrt;
 
             if ($kali == '0') {
                 $hasilAkhir = 0;
 
-                echo "<b>FIX NILAI AKHIR = $hasilAkhir</b>";
-                echo "<br><br>";
+                // echo "<b>FIX NILAI AKHIR = $hasilAkhir</b>";
+                // echo "<br><br>";
             } else {
                 $akar_hitungkoma_awal = sqrt($hitungkoma_awal);
                 $end = round(sqrt($hargaKataKunci), 3) * round($sum_sqrt, 3);
                 $mm = sqrt($hargaKataKunci) * $sum_sqrt;
                 $digit_3 = round($mm, 3);
 
-                echo "<b> COSIM = " . round(sqrt($hargaKataKunci), 3) . " " . round($sum_sqrt, 3)  . " = " . $digit_3 . "</b><br>";
+                // echo "<b> COSIM = " . round(sqrt($hargaKataKunci), 3) . " " . round($sum_sqrt, 3)  . " = " . $digit_3 . "</b><br>";
 
                 $hasilAkhir = $hitungkoma_awal / $digit_3;
-                echo "<b>FIX NILAI AKHIRRR = $hasilAkhir </b>";
-                echo "<br><br>";
+                // echo "<b>FIX NILAI AKHIRRR = $hasilAkhir </b>";
+                // echo "<br><br>";
             }
             $namaDokumenArray = array(
                 'idDokumen' => $idDokumen,

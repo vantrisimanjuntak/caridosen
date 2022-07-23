@@ -65,7 +65,7 @@ foreach ($get_result->result_array() as $row) : ?>
                     <p style="margin-top: -9px;"><?= $data['skor']; ?></p>
                     <!-- <h6 class="mt-3 font-weight-bold">Skor Pencarian (Persen)</h6> -->
                     <!-- <p style="margin-top: -9px;"><?= $data['skorPersen']; ?>%</p> -->
-                    <a href="<?= base_url('dashboard/home/showSkripsiByNip/' . $data['nip']) ?>" target="_blank">
+                    <a href="<?= base_url('detail/' . $data['nip']) ?>" target="_blank">
                         <button class="btn btn-primary">Lihat Profil</button>
                     </a>
                 </div>

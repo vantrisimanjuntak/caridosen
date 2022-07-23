@@ -74,9 +74,10 @@
         $banyakSkripsi = $this->Main_model->banyakData();
         echo $banyakSkripsi;
     }
-    function showSkripsiByNip($nip)
+    function detail($nip)
     {
-        $nip = $this->uri->segment('4');
+
+        $nip = $this->uri->segment('2');
         if ($nip) {
             $data['nip'] = 'Data Dosen';
             $data['profile'] = $this->Main_model->GetJudulByNip($nip);
